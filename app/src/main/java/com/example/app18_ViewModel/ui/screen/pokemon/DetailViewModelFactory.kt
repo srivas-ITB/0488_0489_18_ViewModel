@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 class DetailViewModelFactory (private val pokemonId: Int) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(DetailViewModel::class.java)) {
-            return DetailViewModel() as T
+            return DetailViewModel(pokemonId) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
-class DetailViewModel() : ViewModel() {
+class DetailViewModel(pokemonId: Int) : ViewModel() {
     private val provider = PokemonProvider()
 
     private val _pokemon = MutableStateFlow<Pokemon?>(null)

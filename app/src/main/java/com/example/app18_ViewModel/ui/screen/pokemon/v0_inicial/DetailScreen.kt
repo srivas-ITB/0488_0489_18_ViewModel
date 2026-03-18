@@ -6,19 +6,18 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.app18_ViewModel.ui.screen.pokemon.DetailViewModel
-import com.example.app18_ViewModel.ui.screen.pokemon.DetailViewModelFactory
+import androidx.lifecycle.viewmodel.initializer
+import androidx.lifecycle.viewmodel.viewModelFactory
 
 @Composable
 fun DetailScreen(id: Int, navigateBack: () -> Unit){
     val viewModel: DetailViewModel = viewModel( factory = DetailViewModelFactory(id))
-    /*LaunchedEffect(Unit) {
-        viewModel.loadPokemon(id)
-    }*/
+
     val pokemon = viewModel.pokemon.collectAsState()
     Column(modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center) {

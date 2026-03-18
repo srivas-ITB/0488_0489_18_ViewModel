@@ -16,8 +16,4 @@ class DetailViewModel(pokemonId: Int) : ViewModel() {
     init {
         _pokemon.value = provider.getPokemon(pokemonId)
     }
-
-    /*fun loadPokemon(id: Int) {
-        _pokemon.value = provider.getPokemon(id)
-    }*/
 }

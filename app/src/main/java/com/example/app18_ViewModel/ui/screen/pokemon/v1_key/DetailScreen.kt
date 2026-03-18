@@ -10,18 +10,13 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.app18_ViewModel.ui.screen.pokemon.DetailViewModel
-import com.example.app18_ViewModel.ui.screen.pokemon.DetailViewModelFactory
 
 @Composable
 fun DetailScreen(id: Int, navigateBack: () -> Unit){
     val viewModel: DetailViewModel = viewModel(
         key = id.toString(),
-        factory = DetailViewModelFactory(id)
-    )
-    /*LaunchedEffect(Unit) {
-        viewModel.loadPokemon(id)
-    }*/
+        factory = DetailViewModelFactory(id))
+
     val pokemon = viewModel.pokemon.collectAsState()
     Column(modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center) {
