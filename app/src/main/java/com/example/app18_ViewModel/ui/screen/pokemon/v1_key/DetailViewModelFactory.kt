@@ -1,0 +1,13 @@
+package com.example.app18_ViewModel.ui.screen.pokemon.v1_key
+
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+
+class DetailViewModelFactory (private val pokemonId: Int) : ViewModelProvider.Factory {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        if (modelClass.isAssignableFrom(DetailViewModel::class.java)) {
+            return DetailViewModel(pokemonId) as T
+        }
+        throw IllegalArgumentException("Unknown ViewModel class")
+    }
+}
